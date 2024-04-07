@@ -77,11 +77,11 @@ const CheckoutForm: React.FC = () => {
             }
 
             // Sipariş oluşturma başarılı olursa, ödeme başlatma isteği gönderiyoruz.
-            const preAuthResponse = await axios.post('YOUR_BACKEND_API/start-payment', {
+            const preAuthResponse = await axios.post('YOUR_BACKEND_API/start-payment', { //kendi backend endpointinizi ekleyin
                 orderId: orderResponse.data._id,
                 amount: total * 100,
                 currency: 949, // Örneğin Türk Lirası için
-                callbackUrl: "YOUR_CALLBACK_URL"
+                callbackUrl: "YOUR_CALLBACK_URL" // Ödeme sonrası yönlendirme URL'si
             }, {
                 headers: {Authorization: `Bearer ${token}`},
             });
